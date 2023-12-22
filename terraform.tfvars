@@ -126,7 +126,7 @@ rt_params                = {
   }
 }
 
-user_name                = "opc"
+user_name                = "rocky"
 
 inst_params_bast         = {
   display_name           = "bastion"
