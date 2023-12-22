@@ -29,7 +29,8 @@ resource "oci_core_instance" "bastion" {
     assign_public_ip        = true
   }
   source_details {
-    source_id               = data.oci_core_images.bastion.images[0].id
+    #source_id               = data.oci_core_images.bastion.images[0].id
+    source_id                = var.sc_bastion_image
     source_type             = "image"
     boot_volume_size_in_gbs = var.inst_params_bast.boot_vol_size
   }
