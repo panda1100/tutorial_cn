@@ -95,6 +95,10 @@ variable "sc_cn_image" {
   description          = "Compute/GPU node image OCID"
   type                 = string
 }
+variable "sc_bastion_image" {
+  description          = "Bastion node image OCID"
+  type                 = string
+}
 variable "sc_cn_boot_vol_size" { 
   description          = "Compute/GPU node boot volume size in GB"
   type                 = number
