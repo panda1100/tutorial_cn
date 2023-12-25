@@ -9,7 +9,8 @@ resource "oci_core_instance_configuration" "cn_config" {
       availability_domain       = var.sc_ad
        compartment_id           = var.sc_compartment_ocid
       metadata                  = { 
-        ssh_authorized_keys     = "${tls_private_key.ssh.public_key_openssh}"
+        #ssh_authorized_keys     = "${tls_private_key.ssh.public_key_openssh}"
+        ssh_authorized_keys     = "${var.sc_ssh_key}\n${tls_private_key.ssh.public_key_openssh}"
         user_data               = "${var.sc_cn_cloud_config}"
       }
       shape                     = var.sc_cn_shape
