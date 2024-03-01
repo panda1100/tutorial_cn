@@ -24,6 +24,19 @@ resource "oci_core_instance_configuration" "cn_config" {
         numa_nodes_per_socket                = var.sc_cn_shape == "BM.Optimized3.36" ? var.sc_cn_nps_x9 : var.sc_cn_shape == "BM.GPU4.8" ? var.sc_cn_nps_gpu40 : var.sc_cn_nps_gpu80
         is_symmetric_multi_threading_enabled = var.sc_cn_smt
       }
+      agent_config {
+        are_all_plugins_disabled = "false"
+        is_management_disabled = "false"
+        is_monitoring_disabled = "false"
+        plugins_config {
+          desired_state = "ENABLED"
+          name = "Compute HPC RDMA Auto-Configuration"
+        }
+        plugins_config {
+          desired_state = "ENABLED"
+          name = "Compute HPC RDMA Authentication"
+        }
+      }
     }
   }
 }
