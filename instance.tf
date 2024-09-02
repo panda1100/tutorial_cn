@@ -46,11 +46,6 @@ resource "null_resource" "bastion" {
   triggers                  = {
     bastion                 = oci_core_instance.bastion.id
   }
-  timeouts {
-    create = "30m"
-    update = "30m"
-    delete = "30m"
-  }
   provisioner "file" {
     content                 = tls_private_key.ssh.private_key_pem
     destination             = "/home/${var.user_name}/.ssh/id_rsa"
