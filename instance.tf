@@ -48,7 +48,7 @@ resource "null_resource" "bastion" {
   }
   provisioner "file" {
     content                 = tls_private_key.ssh.private_key_pem
-    destination             = ".ssh/id_rsa"
+    destination             = "/home/${var.user_name}/.ssh/id_rsa"
     connection {
       host                  = oci_core_instance.bastion.public_ip
       type                  = "ssh"
