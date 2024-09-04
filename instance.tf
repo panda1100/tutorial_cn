@@ -77,10 +77,7 @@ resource "null_resource" "bastion" {
       type                  = "ssh"
       user                  = var.user_name
       private_key           = tls_private_key.ssh.private_key_pem
-      timeout {
-        create = "60m"
-        delete = "60m"
-      }
+      timeout               = "20m"
     }
   }
 }
