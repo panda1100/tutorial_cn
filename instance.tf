@@ -54,6 +54,7 @@ resource "null_resource" "bastion" {
       type                  = "ssh"
       user                  = var.user_name
       private_key           = tls_private_key.ssh.private_key_pem
+      timeout               = "20m"
     }
   }
   provisioner "remote-exec" {
@@ -77,7 +78,6 @@ resource "null_resource" "bastion" {
       type                  = "ssh"
       user                  = var.user_name
       private_key           = tls_private_key.ssh.private_key_pem
-      timeout               = "20m"
     }
   }
 }
