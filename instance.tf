@@ -20,10 +20,6 @@ resource "oci_core_instance" "bastion" {
   display_name              = var.inst_params_bast.display_name
   availability_domain       = var.sc_ad
   shape                     = var.inst_params_bast.shape
-  shape_config {
-    ocpus                   = var.inst_params_bast.ocpus
-    memory_in_gbs           = var.inst_params_bast.memory_in_gbs
-  }
   create_vnic_details {
     subnet_id               = oci_core_subnet.sub["public"].id
     assign_public_ip        = true
