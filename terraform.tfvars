@@ -130,7 +130,7 @@ user_name                = "rocky"
 
 inst_params_bast         = {
   display_name           = "bastion"
-  shape                  = "VM.Standard.E4.Flex"
+  shape                  = "BM.Optimized3.36"
   ocpus                  = 8
   memory_in_gbs          = 16
   boot_vol_size          = 50
