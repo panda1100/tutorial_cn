@@ -20,8 +20,8 @@ resource "oci_core_instance_configuration" "cn_config" {
         image_id                = var.sc_cn_image
       }
       platform_config {
-        type                                 = var.sc_cn_shape == "BM.Optimized3.36" ? "INTEL_ICELAKE_BM" : var.sc_cn_shape == "BM.GPU4.8" ? "AMD_ROME_BM_GPU" : "AMD_MILAN_BM_GPU"
-        numa_nodes_per_socket                = var.sc_cn_shape == "BM.HPC.E5.144" ? var.sc_cn_nps_x9 : "BM.Standard.E6.256" ? var.sc_cn_nps_x9 : "BM.Optimized3.36" ? var.sc_cn_nps_x9 : var.sc_cn_shape == "BM.GPU4.8" ? var.sc_cn_nps_gpu40 : var.sc_cn_nps_gpu80
+        type                                 = var.sc_cn_shape == "BM.HPC.E5.144" ? "AMD_MILAN_BM" : var.sc_cn_shape == "BM.Optimized3.36" ? "INTEL_ICELAKE_BM" : var.sc_cn_shape == "BM.GPU4.8" ? "AMD_ROME_BM_GPU" : "AMD_MILAN_BM_GPU"
+        numa_nodes_per_socket                = var.sc_cn_shape == "BM.HPC.E5.144" ? var.sc_cn_nps_x9 : var.sc_cn_shape == "BM.Standard.E6.256" ? var.sc_cn_nps_x9 : var.sc_cn_shape == "BM.Optimized3.36" ? var.sc_cn_nps_x9 : var.sc_cn_shape == "BM.GPU4.8" ? var.sc_cn_nps_gpu40 : var.sc_cn_nps_gpu80
         is_symmetric_multi_threading_enabled = var.sc_cn_smt
       }
       agent_config {
